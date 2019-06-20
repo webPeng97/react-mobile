@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  border: 0;
+}
+
+%ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list {
+  height: 170px;
+  padding: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 15px;
+  .img {
+    width: 150px;
+    height: 150px;
+    display: block;
+  }
+
+  .text-warpper {
+    padding: 10px 20px;
+    width: calc(100% - 150px);
+
+    .title {
+      font-size: 30px;
+      margin-bottom: 20px;
+      @extend %ellipsis;
+    }
+
+    .author {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+  }
+}
