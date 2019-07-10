@@ -6,9 +6,11 @@ import {
 } from 'react-router-dom'
 import Home from './containers/home'
 import About from './containers/about'
+import Test from './containers/test'
 import Topics from './containers/topics/topics'
 import Exercise from './containers/exercise'
 import NoaMatch from './containers/404'
+import './assets/scss/index.scss'
 
 import { Provider } from 'react-redux'
 import store from './store'
@@ -16,6 +18,7 @@ import store from './store'
 const routerList = [
   { path: "/exercise", name: "Exercise", component: Exercise },
   { path: "/about", name: "About", component: About },
+  { path: "/test", name: "Test", component: Test },
   { path: "/topics", name: "Topics", component: Topics }
 ]
 

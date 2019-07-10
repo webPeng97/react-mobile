@@ -1,78 +1,64 @@
-// import { Button } from 'antd-mobile'
+import { SearchBar, Carousel  } from 'antd-mobile'
 import React, { Component, Fragment  } from 'react'
-import { connect } from 'react-redux'
-import { setPageTitle, setInfoList } from '../../store/actions.js'
-import { List, Button } from 'antd-mobile';
-const Item = List.Item;
+import Img01 from "../../assets/images/1.png"
+import Img02 from "../../assets/images/2.png"
+import Img03 from "../../assets/images/3.png"
+import Img04 from "../../assets/images/4.png"
 
 class Home extends Component {
-
-  componentDidMount () {
-    document.title = 'Home'
-    console.log('this.props1', this.props)
-    let { setPageTitle, setInfoList } = this.props // es6 解构赋值
-    
-    // 触发setPageTitle action
-    setPageTitle('这是修改redux中pageTitle的值')
-    
-    // 触发setInfoList action
-    setInfoList()
+  state = {
+    data: [Img01, Img02, Img03, Img04],
+    imgHeight: 176
   }
 
+  // componentDidMount () {
+  //   setTimeout(() => {
+  //     this.setState({
+  //       data: ['1', '2', '3', '4'],
+  //     })
+  //   }, 100)
+  // }
+
   render () {
-    console.log('this.props2', this.props)
-    // 从props中解构store
-    let { pageTitle, infoList } = this.props
-    
-    // 使用store
     return (
       <Fragment>
-        <h1>{pageTitle}</h1>
-        <Button onClick={() => {this.props.history.push('/about')}}>About</Button>
+        <SearchBar placeholder="搜索香水、品牌、气味、帖子" maxLength={8} />
+        {/* <Button onClick={() => {this.props.history.push('/about')}}>About</Button>
         <Button onClick={() => {this.props.history.push('/topics')}}>Topics</Button>
-        {
-            infoList.length > 0 ? (
-                <List renderHeader={() => 'Basic Style'} className="my-list">
-                    {
-                      infoList.map(item => {
-                          return (
-                            <Item extra={item.id} key={item.id}>{item.name}</Item>
-                          )
-                      })
-                    }
-                </List>
-            ):null
-        }
+        <Button onClick={() => {this.props.history.push('/test')}}>Test</Button> */}
+        {/* 使用Carousel 会出现如下错误：
+          * [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. See <URL>
+          * 解决办法：* { touch-action: pan-y; }  使用全局样式样式去掉
+          * https://www.jianshu.com/p/04bf173826aa
+         */}
+        <Carousel
+          autoplay={false}
+          infinite
+          beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+          afterChange={index => console.log('slide to', index)}
+        >
+          {this.state.data.map(val => (
+            <a
+              key={val}
+              href="/"
+              style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+            >
+              <img
+                src={val}
+                alt=""
+                style={{ width: '100%', verticalAlign: 'top' }}
+                onLoad={() => {
+                  // 防止窗口调整大小事件以改变高度
+                  window.dispatchEvent(new Event('resize'))
+                  this.setState({ imgHeight: 'auto' })
+                }}
+              />
+            </a>
+          ))}
+        </Carousel>
       </Fragment>
     )
   }
 }
 
-// mapStateToProps：将state映射到组件的props中
-const mapStateToProps = (state) => {
-  return {
-    pageTitle: state.pageTitle,
-    infoList: state.infoList
-  }
-}
-
-// mapDispatchToProps：将dispatch映射到组件的props中
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    setPageTitle (data) {
-        // 如果不懂这里的逻辑可查看前面对redux-thunk的介绍
-        dispatch(setPageTitle(data))
-        // 执行setPageTitle会返回一个函数
-        // 这正是redux-thunk的所用之处:异步action
-        // 上行代码相当于
-        /*dispatch((dispatch, getState) => {
-            dispatch({ type: 'SET_PAGE_TITLE', data: data })
-        )*/
-    },
-    setInfoList (data) {
-        dispatch(setInfoList(data))
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home
