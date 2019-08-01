@@ -26,6 +26,7 @@
       font-size: 30px;
       margin-bottom: 20px;
       @extend %ellipsis;
+      color: $cs-color;
     }
 
     .author {

@@ -1,0 +1,84 @@
+// 设置标签默认样式
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  outline: 0;
+  border: 0;
+  background: none;
+  -webkit-apperance: none;
+  @include placeholderColor();
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  border: 0;
+}
+
+em,i {
+	font-style: normal;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+label {
+  font-weight: 700;
+}
+
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  touch-action: pan-y;
+} 
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  border: 0;
+}
+
