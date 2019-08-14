@@ -12,7 +12,7 @@ textarea {
   border: 0;
   background: none;
   -webkit-apperance: none;
-  @include placeholderColor();
+  // @include placeholderColor();
 }
 
 li {
@@ -68,17 +68,3 @@ body {
 label {
   font-weight: 700;
 }
-
-* { 
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  touch-action: pan-y;
-} 
-
-img {
-  max-width: 100%;
-  vertical-align: top;
-  border: 0;
-}
-

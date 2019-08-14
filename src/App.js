@@ -9,6 +9,7 @@ import About from './containers/about'
 import Test from './containers/test'
 import Topics from './containers/topics/topics'
 import Exercise from './containers/exercise'
+import DoctorList from './containers/doctorList'
 import NoaMatch from './containers/404'
 import './assets/scss/index.scss'
 
@@ -19,7 +20,8 @@ const routerList = [
   { path: "/exercise", name: "Exercise", component: Exercise },
   { path: "/about", name: "About", component: About },
   { path: "/test", name: "Test", component: Test },
-  { path: "/topics", name: "Topics", component: Topics }
+  { path: "/topics", name: "Topics", component: Topics },
+  { path: "/doctor-list", name: "DoctorList", component: DoctorList }
 ]
 
 const App = () => (

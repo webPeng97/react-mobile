@@ -1,4 +1,13 @@
 $cs-color: red;
+$font-color: #2A64A7;
+$font-12: 24px;
+$font-14: 28px;
+$font-16: 32px;
+$font-18: 36px;
+$font-20: 40px;
+$font-24: 48px;
+$font-28: 56px;
+$font-30: 60px;
 
 // 透明兼容写法
 @mixin opacity($number: 0.5) {
