@@ -40,7 +40,7 @@ axios.interceptors.response.use(response => {
   Toast.hide() // 销毁Toast组件
   // 错误拦截判断 具体看后端返回格式定义
   return {
-    data: response.data,
+    data: response.data.data,
     status: response.status,
     headers: response.headers,
     statusText: response.statusText

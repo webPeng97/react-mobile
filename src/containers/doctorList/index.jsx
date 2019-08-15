@@ -5,13 +5,17 @@ import light from '@img/light.png'
 import hospital from '@img/hospital.png'
 import label from '@img/label.png'
 
+import { getRoleList } from '@/api'
+
 class DoctorList extends Component {
   state = {
     selectVal: '请选择',
     inputVal: '',
     subscribe: false
   }
-  componentDidMount () {
+  async componentDidMount () {
+    let res = await getRoleList()
+    console.log(res)
   }
   render () {
     return (
@@ -41,7 +45,7 @@ class DoctorList extends Component {
               </div>
             </div>
             <div className="module-wrap">
-              <div className="wrap">
+              <div className="warp">
                 {/* <div>1111</div>
                 <div>222</div> */}
                 <div className="head-wrap">

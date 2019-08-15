@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  touch-action: pan-y; // 解决使用Carousel 的错误
 }
 
 button,

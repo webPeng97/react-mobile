@@ -23,9 +23,9 @@ class Home extends Component {
 
   componentDidMount () {
     getRoleList().then(res => {
-      console.log(res.data.data)
+      console.log(res.data)
       this.setState({
-        asyncList: res.data.data
+        asyncList: res.data
       })
     })
   }

@@ -11,7 +11,7 @@ export function setInfoList (data) {
   return (dispatch, getState) => {
     // 使用axios实现异步请求
     getRoleList().then( res => {
-      dispatch({ type: 'SET_INFO_LIST', data: res.data.data })
+      dispatch({ type: 'SET_INFO_LIST', data: res.data })
     })
   }
 }
